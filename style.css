@@ -1,19 +1,193 @@
-/* General body styling to remove default margin and padding */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: white;
-    background-color: #0c0c1e; /* Dark space background */
-    overflow: hidden; /* Prevents scrollbars */
+/* Countdown Timer Styles */
+.countdown-timer {
+    margin: 1.5rem 0 0.5rem 0;
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffd23f;
+    letter-spacing: 1px;
+    text-align: center;
+    background: rgba(21, 27, 47, 0.7);
+    border-radius: 8px;
+    padding: 0.5rem 1.5rem;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
-
-/* The canvas will be fixed in the background */
-#bg {
+.countdown-timer span {
+    color: #fff;
+    margin: 0 0.25em;
+    font-size: 2.2rem;
+}
+.floating-navbar {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -1; /* Place it behind all other content */
+    width: 100%;
+    background: rgba(21, 27, 47, 0.98);
+    color: #ffd23f;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    min-width: 0;
+}
+.floating-navbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1.5rem;
+}
+.floating-navbar .navbar-logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    min-width: 0;
+    flex-shrink: 1;
+}
+.floating-navbar .navbar-links {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 0;
+    gap: 2.5rem;
+}
+.floating-navbar .navbar-links a {
+    color: #ffd23f;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    white-space: nowrap;
+    font-size: 1.15rem;
+}
+.floating-navbar .navbar-links a:hover {
+    color: #ff3d81;
+}
+
+@media (max-width: 600px) {
+    .floating-navbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem 0.5rem;
+    }
+    .floating-navbar .navbar-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    .floating-navbar .navbar-links a {
+        margin-left: 0;
+        font-size: 1rem;
+    }
+}
+.floating-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(21, 27, 47, 0.98);
+    color: #ffd23f;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    min-width: 0;
+}
+.floating-navbar .navbar-logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    min-width: 0;
+    flex-shrink: 1;
+}
+.floating-navbar .navbar-links {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 0;
+    gap: 1rem;
+}
+.floating-navbar .navbar-links a {
+    color: #ffd23f;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+.floating-navbar .navbar-links a:hover {
+    color: #ff3d81;
+}
+
+@media (max-width: 600px) {
+    .floating-navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem 0.5rem;
+    }
+    .floating-navbar .navbar-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    .floating-navbar .navbar-links a {
+        margin-left: 0;
+        font-size: 1rem;
+    }
+}
+.floating-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(11, 18, 32, 0.98);
+    color: #ddd;
+    z-index: 100;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.12);
+    transition: height 0.3s cubic-bezier(.4,0,.2,1), padding 0.3s cubic-bezier(.4,0,.2,1);
+    height: 38px;
+    padding: 0 20px;
+    overflow: hidden;
+}
+.floating-footer:hover {
+    height: 240px;
+    padding: 40px 20px 18px;
+    overflow: visible;
+}
+.floating-footer .footer-grid,
+    .floating-footer .footer-copy {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s cubic-bezier(.4,0,.2,1);
+    }
+.floating-footer .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 18px;
+    max-width: 900px;
+    margin: 0 auto 18px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(.4,0,.2,1);
+    height: 0;
+}
+.floating-footer:hover .footer-grid {
+    opacity: 1;
+    pointer-events: auto;
+    height: auto;
+}
+.floating-footer .footer-copy {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 8px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #888 !important;
+    opacity: 1;
+    pointer-events: auto;
+    background: transparent;
+    z-index: 2;
 }
 
 /* Container for the main text content */
@@ -30,7 +204,8 @@ body {
 h1 {
     font-size: 3rem;
     margin: 0;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    color: #fff;
+    text-shadow: 0 0 18px rgba(255,255,255,0.7), 0 0 2px #000;
 }
 
 /* Sub-heading style */
@@ -71,15 +246,109 @@ button:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    pointer-events: none; /* Allows mouse interaction with the canvas below */
 }
-
 /* Styling for the ket labels (|0>, |1>, etc.) */
 .label {
     position: absolute;
     color: #a0a0c0;
+    opacity: 1;
+    pointer-events: auto;
+    transition: none;
     font-size: 16px;
     /* This transform will be updated by JavaScript */
     transform: translate(-50%, -50%); 
+}
+
+/* Floating Navbar Styles */
+.floating-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(21, 27, 47, 0.98);
+    color: #ffd23f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+.floating-navbar .navbar-logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.floating-navbar .navbar-links a {
+    color: #ffd23f;
+    margin-left: 2rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.floating-navbar .navbar-links a:hover {
+    color: #ff3d81;
+}
+
+/* Floating Footer Styles */
+.floating-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(11, 18, 32, 0.98);
+    color: #ddd;
+    padding: 40px 20px 18px;
+    z-index: 100;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.12);
+}
+.floating-footer .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 18px;
+    max-width: 900px;
+    margin: 0 auto 18px;
+}
+.floating-footer h4 {
+    margin-bottom: 10px;
+    color: #ffd23f;
+    font-size: 1rem;
+}
+.floating-footer ul {
+    list-style: none;
+    padding: 0;
+}
+.floating-footer ul li {
+    margin: 5px 0;
+}
+.floating-footer ul li a {
+    color: #777;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+.floating-footer ul li a:hover {
+    color: #fff;
+}
+.floating-footer .footer-copy {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .floating-navbar {
+        flex-direction: column;
+        padding: 0.5rem 1rem;
+    }
+    .floating-navbar .navbar-links a {
+        margin-left: 1rem;
+        font-size: 1rem;
+    }
+    .floating-footer {
+        padding: 24px 8px 10px;
+    }
+    .floating-footer .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
 }
