@@ -7,16 +7,67 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Floating Navbar -->
+    <nav class="floating-navbar">
+        <div class="floating-navbar-inner">
+            <div class="navbar-logo">
+                <span>IISc QFF 2025</span>
+            </div>
+            <div class="navbar-links">
+                <a href="#details">Details</a>
+                <a href="#schedule">Schedule</a>
+                <a href="#speakers">Speakers</a>
+            </div>
+        </div>
+    </nav>
+
     <canvas id="bg"></canvas>
 
     <div class="content">
         <h1>IISc x Qiskit Fall Fest 2025</h1>
         <h2>October 28 - November 02</h2>
+        <div id="countdown-timer" class="countdown-timer">
+            <span id="days">00</span> Days
+            <span id="hours">00</span> Hrs
+            <span id="minutes">00</span> Mins
+            <span id="seconds">00</span> Sec
+        </div>
         <button>Register Now</button>
     </div>
 
     <div id="labels-container"></div>
-    
+
+    <!-- Floating Footer -->
+    <footer class="floating-footer">
+        <div class="footer-grid">
+            <div>
+                <h4>Event</h4>
+                <ul>
+                    <li><a href="#details">Details</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#speakers">Speakers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="#">Organizers</a></li>
+                    <li><a href="#">Collaborators</a></li>
+                    <li><a href="#">Sponsors</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-copy">&copy; 2025 IBM Fall Fest IISc. All rights reserved.</p>
+    </footer>
+
     <script type="importmap">
         {
             "imports": {
